@@ -167,6 +167,17 @@
                 window.open("./oisin.canty.cv.pdf")
 
             })
+
+            const emailInput = document.getElementById("email")
+            const downloadButton = document.getElementById("downloadButton")
+
+            emailInput.addEventListener('input', () => {
+                if (emailInput.value && emailInput.value.match(/[a-z0-9\._%+!$&*=^|~#%'`?{}/\-]+@([a-z0-9\-]+\.){1,}([a-z]{2,16})/)) {
+                    downloadButton.disabled = false
+                } else {
+                    downloadButton.disabled = true
+                }
+            })
         }
 
 
@@ -202,7 +213,7 @@
                 id="email"
                 style="margin-bottom: 8px; width: 100%; background-color: rgba(255,255,255, 0.6);font-size: 16px;padding: 12px;color: black;outline: 1px dashed #00000052;text-align: center;/* font-weight: bold; */font-family: monospace;"
                 type="email" placeholder="Enter email"><br>
-            <input id="downloadButton" type="button" value="Download" style="
+            <input id="downloadButton" disabled type="button" value="Download" style="
     width: 100%;
     padding: 8px;
     cursor: pointer;
